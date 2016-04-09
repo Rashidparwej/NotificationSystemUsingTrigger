@@ -47,7 +47,7 @@ public class SheduledJobUsingTrigger {
 	private String subjectAlert;
 	private final static Log LOG = LogFactory.getLog(SheduledJobUsingTrigger.class);
 
-	@Scheduled(fixedRate =60000)  
+	@Scheduled(fixedRate =600000)  
 	public void checkForUpdates() throws Exception
 	{
 		Template vTemplate = velocityEngine.getTemplate(countTemplate);
@@ -75,7 +75,7 @@ public class SheduledJobUsingTrigger {
 					public Object call() throws Exception {
 						try {
 							emailSenderServiceImpl.send(to, subject, sender, body);
-							LOG.info("Sending report count mail");
+							LOG.info("Snding mail");
 						} catch (Exception ex) {
 							LOG.error("Exception = ", ex);
 						}
